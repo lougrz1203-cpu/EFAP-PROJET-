@@ -1,19 +1,438 @@
-.header{
-    display: flex;
-    justify-content: space-between;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 32px ;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #f8f6ee;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* =========================
+   CONTAINER GLOBAL
+========================= */
 .container {
-    width: 80%;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
 }
 
-.gallery { 
-    width: 100%;
+
+
+/* =========================
+   HERO (FORT IMPACT)
+========================= */
+.hero-container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
+
+.hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.hero-nav {
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+
+.hero-nav a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #92ad20;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.hero-nav a:hover {
+  opacity: 0.6;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Arial Black", Arial, sans-serif;
+  font-weight: 900;
+
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+  color: #92ad20;
+
+  text-align: center;
+
+  line-height: 0.9;
+  letter-spacing: 1px;
+
+  max-width: 90vw;   /* IMPORTANT : empêche 3e ligne */
+  white-space: normal;
+
+  z-index: 10;
+  width: 90%;
+}
+
+.intro-experiences {
+  max-width: 700px;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}  
+
+
+/* =========================
+   TYPOGRAPHIE
+========================= */
+h1, h2, h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Arial Black", Arial, sans-serif;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-family: "Arial Black", Arial, sans-serif;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: "Arial Black", Arial, sans-serif;
+}
+
+/* =========================
+   COULEURS TITRES
+========================= */
+.title-blue { color: #325bab; font-weight: 700; }
+.title-green { color: #92ad20; font-weight: 700; }
+
+.exp-marron { color: #c0594c; font-weight: 700; }
+.exp-rouge { color: #c82929; font-weight: 700; }
+.exp-bleu { color: #325bab; font-weight: 700; }
+.exp-jaune { color: #f9be1a; font-weight: 700; }
+.exp-rose { color: #db599d; font-weight: 700; }
+.exp-bordeaux { color: #7a3e2f; font-weight: 700; }
+
+/* =========================
+   LAYOUT SECTIONS
+========================= */
+.content-split {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.simple-section {
+  margin-bottom: 35px !important;
+  padding-bottom: 10px;
+}
+
+/* colonnes */
+.left-column,
+.right-column {
+  flex: 1;
+}
+
+/* =========================
+   IMAGES
+========================= */
+.profile-pic {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.left-column img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.left-column img:hover {
+  transform: scale(1.02);
+}
+
+.right-column img {
+  width: 100%;
+  max-width: 520px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* =========================
+   TEXTE (STYLE ÉCOLE DESIGN)
+========================= */
+.right-column p {
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: justify;
+  color: #2a2a2a;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contact-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #92ad20;
+}
+
+.contact-text a {
+  color: #92ad20;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.contact-text a:hover {
+  border-bottom: 1px solid #92ad20;
+}
+
+
+/* BLOCS EXPERIENCES UNIQUEMENT */
+#experiences .content-split {
+  background: rgba(50, 91, 171, 0.04);
+  padding: 50px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+/* EXCEPTION : dernier bloc sans fond */
+#experiences .content-split:last-of-type {
+  background: transparent;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  padding-left: 10px;
+}
+
+.right-column p {
+  max-width: 520px;
+}
+
+#experiences .right-column img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin-top: 20px;
+  margin-left: 0;
+  border-radius: 10px;
+}
+
+#experiences {
+  padding-top: 70px;
+}
+
+#experiences .content-split:last-of-type .left-column img {
+  max-width: 700px;
+  width: 100%;
+  transform: scale(1.02);
+}
+
+/* =========================
+   EDUCATION / SKILLS PREMIUM
+========================= */
+
+.edu-section {
+  padding: 140px 20px 120px 20px; /* 👉 énorme respiration avant Experiences */
+}
+
+.edu-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+/* blocs */
+.edu-block h2 {
+  margin-bottom: 35px;
+}
+
+/* EDUCATION items */
+.edu-item {
+  margin-bottom: 25px;
+}
+
+.year {
+  display: block;
+  font-weight: 700;
+  color: #92ad20;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+/* texte education */
+.edu-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #2a2a2a;
+  line-height: 1.6;
+}
+
+/* SKILLS design */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills-grid span {
+  background: rgba(50, 91, 171, 0.06);
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skills-grid span:hover {
+  background: rgba(50, 91, 171, 0.12);
+  transform: translateY(-2px);
+}
+
+.footer {
+  background: #f8f6ee;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  line-height: 1.6;
+}
+
+.footer-small {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 20px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  background: #92ad20;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  text-decoration: none;
+
+  font-weight: bold;
+  font-size: 18px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  transition: 0.3s;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.quote {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 800px;
+  margin: auto;
+  font-family:  "Arial Black", Arial, sans-serif;
+  color: #92ad20;
+}
+
+.left-column img,
+.right-column img {
+  transition: transform 0.4s ease;
+}
+
+.left-column img:hover,
+.right-column img:hover {
+  transform: scale(1.03);
+}
+
+.video-link {
+  display: inline-block;
+  margin-top: 18px;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #325bab;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(50, 91, 171, 0.4);
+
+  transition: 0.3s ease;
+}
+
+.video-link:hover {
+  color: #1f3f7a;
+  border-bottom: 1px solid #1f3f7a;
+  transform: translateX(3px);
+}
+
+
